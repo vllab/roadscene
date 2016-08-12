@@ -1,2 +1,0 @@
-1. Download the data from http://m103.nthu.edu.tw/~s103062559/thesis/labeling_data.zip, and unzip it.
-2. Open the file "labeling.m" in MATLAB, then follow the instructions in the ppt. (Labeling the notable object and the hazard level.pptx)
