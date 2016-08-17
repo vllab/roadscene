@@ -1,3 +1,9 @@
+% The MATLAB script draw the threshold line-chart of validation.
+% 
+% Author: WYKung
+% Date: 8.17.2016
+%
+
 clear;
 
 bit = 2;

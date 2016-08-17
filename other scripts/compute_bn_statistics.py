@@ -1,10 +1,17 @@
+# This script is modified from SegNet
+# 
+# Original author: Alex Kendall
+# Edit by WYKung
+# Date: 8.17.2016
+#
+
 #!/usr/bin/env python
 import os
 import numpy as np
 from skimage.io import ImageCollection
 from argparse import ArgumentParser
 
-caffe_root = '/mnt/data/amy_data/SegNet/caffe-segnet_/' 			# Change this to the absolute directoy to SegNet Caffe
+caffe_root = '/SegNet/caffe-segnet_/' 			
 import sys
 sys.path.insert(0, caffe_root + 'python')
 

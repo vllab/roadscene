@@ -1,3 +1,9 @@
+% Validation script
+% 
+% Author: WYKung
+% Date: 8.17.2016
+%
+
 clear;
 
 folder = 'val';
@@ -5,20 +11,17 @@ list = textread(['/mnt/data/amy_data/SegNet/final_model/list/' folder '.txt'], '
 load(['/mnt/data/amy_data/SegNet/final_model/new_' folder '_gt.mat']);
 
 threshold_prob = [0 0];
-% threshold = [0.5 0.5];
 bit = 1;
 diary(['cmp_val_' num2str(bit) '.txt']);
 
 for thres = 0.1:0.05:0.9
     threshold_prob(bit) = thres;
     display(thres)
-for iter = 7:7
     c_matrix = zeros(3,3);
     score = 0;
     score_2 = 0;
     count = 0;
 for i=1:length(list)
-%     load(['/mnt/data/amy_data/SegNet/final_model/0703/result/' folder '/' num2str(10000*iter) '/' list{i} '.mat']);
     load(['/mnt/data/amy_data/SegNet/cmp_model/SALICON/result/cmp/' folder '/' list{i} '.mat']);
     files = dir(['/mnt/data/amy_data/SegNet/final_model/mask_all/' list{i} '*.png']);
     num_seg(i) = length(files);
@@ -33,13 +36,6 @@ for i=1:length(list)
         mask = single(imread(['/mnt/data/amy_data/SegNet/final_model/mask_all/' files(j).name])/255);
         
         seg = mask.*(attr(:,:,bit));
-
-%         tmp_map = seg;
-%         t = tabulate(tmp_map(logical(mask)));
-%         if (t(t(:,1)==1,3)/100)>threshold(bit)
-%             tmp_map(logical(mask)) = 1;
-%         end
-%         seg = tmp_map;
         seg_label(i,j) = mode(seg(logical(mask)));
         
         if bit==2
@@ -58,12 +54,10 @@ for i=1:length(list)
     end
 end
 display(thres)
-display(iter)
 accuracy = score/count;
 display(score)
 display(score_2)
 display(accuracy)
 % display(c_matrix)
-end
 end
 diary off
