@@ -1,3 +1,10 @@
+# This script is modified from FCN
+# 
+# Original author: Jonathan Long
+# Edit by WYKung
+# Date: 8.17.2016
+#
+
 from __future__ import division
 import caffe
 import numpy as np
