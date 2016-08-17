@@ -27,7 +27,7 @@ p = 'SegNet/final_model/0703/joint_train/result'		# set the path of results
 
 # Import arguments
 parser = argparse.ArgumentParser()
-parser.add_argument('--folder', type=str, required=True) #
+parser.add_argument('--folder', type=str, required=True) # test or validation
 parser.add_argument('--model', type=str, required=True)
 parser.add_argument('--weights', type=str, required=True)
 parser.add_argument('--iter', type=int, required=True)
